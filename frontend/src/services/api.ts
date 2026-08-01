@@ -1,0 +1,10 @@
+import { client } from "./client"; import type { DemoPR, Incident, Repository, SwarmRun } from "../types/api";
+export const repositories=()=>client.get<Repository[]>("/repositories").then(r=>r.data);
+export const demoPullRequests=()=>client.get<DemoPR[]>("/demo/pull-requests").then(r=>r.data);
+export const demoIncidents=()=>client.get<Incident[]>("/demo/incidents").then(r=>r.data);
+export const demoRepository=()=>client.get<{name:string;files:string[];file_count:number}>("/demo/repository").then(r=>r.data);
+export const runAnalysis=(number:number)=>client.post<SwarmRun>(`/swarm/runs/${number}`).then(r=>r.data);
+export const updateSetting=(key:string,value:Record<string,unknown>)=>client.put(`/settings/${key}`,{value}).then(r=>r.data);
+export const demoDashboard=()=>client.get("/demo-mode/dashboard").then(r=>r.data);
+export const resetDemo=()=>client.post("/demo-mode/reset").then(r=>r.data);
+export const replayDemo=(number:number)=>client.post(`/demo-mode/replay/${number}`).then(r=>r.data);

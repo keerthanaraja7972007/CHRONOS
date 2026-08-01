@@ -1,0 +1,1 @@
+import ReactMarkdown from "react-markdown"; export function MarkdownViewer({value}:{value:string}){return <article className="prose prose-slate max-w-none prose-headings:text-ink prose-p:text-body"><ReactMarkdown>{value}</ReactMarkdown></article>}

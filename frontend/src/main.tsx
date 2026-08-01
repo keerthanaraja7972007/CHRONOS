@@ -1,0 +1,11 @@
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./index.css";
+import { UIProvider } from "./context/ui-context";
+import { AppLayout } from "./components/layout/app-layout";
+import { ErrorBoundary } from "./components/common/error-boundary";
+import { Analysis, CounterPRs, Dashboard, History, Landing, PreMortems, Repository, RiskDashboard, Runbooks, Settings, Upload } from "./pages/enhanced-pages";
+const queryClient=new QueryClient({defaultOptions:{queries:{retry:1,refetchOnWindowFocus:false,staleTime:30000}}});
+ReactDOM.createRoot(document.getElementById("root")!).render(<React.StrictMode><ErrorBoundary><QueryClientProvider client={queryClient}><UIProvider><BrowserRouter><Routes><Route path="/" element={<Landing/>}/><Route element={<AppLayout/>}><Route path="/dashboard" element={<Dashboard/>}/><Route path="/repositories" element={<Repository/>}/><Route path="/upload" element={<Upload/>}/><Route path="/analysis/:number" element={<Analysis/>}/><Route path="/live-analysis" element={<Analysis/>}/><Route path="/risk-dashboard" element={<RiskDashboard/>}/><Route path="/pre-mortems" element={<PreMortems/>}/><Route path="/counter-prs" element={<CounterPRs/>}/><Route path="/runbooks" element={<Runbooks/>}/><Route path="/history" element={<History/>}/><Route path="/settings" element={<Settings/>}/></Route></Routes></BrowserRouter></UIProvider></QueryClientProvider></ErrorBoundary></React.StrictMode>);

@@ -1,0 +1,1 @@
+import { ReactNode } from "react"; export function EmptyState({title,children}:{title:string;children?:ReactNode}){return <div className="card text-center"><h3 className="font-medium">{title}</h3>{children&&<p className="mt-2 text-sm text-zinc-400">{children}</p>}</div>}

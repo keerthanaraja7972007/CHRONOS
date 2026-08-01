@@ -1,0 +1,3 @@
+import { ButtonHTMLAttributes } from "react"; import { cn } from "../../lib/utils";
+type Variant="primary"|"secondary"|"danger"|"success";
+export function Button({className,variant="primary",...props}:ButtonHTMLAttributes<HTMLButtonElement>&{variant?:Variant}){const variants={primary:"bg-primary text-white hover:bg-blue-700",secondary:"border border-primary bg-white text-primary hover:bg-blue-50",danger:"bg-critical text-white hover:bg-red-600",success:"bg-success text-white hover:bg-green-600"};return <button className={cn("inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-semibold shadow-sm transition-all duration-200 hover:-translate-y-px disabled:pointer-events-none disabled:opacity-50",variants[variant],className)} {...props}/>}

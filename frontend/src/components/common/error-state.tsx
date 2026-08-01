@@ -1,0 +1,1 @@
+import { AlertCircle } from "lucide-react"; export function ErrorState({message}:{message:string}){return <div className="card flex gap-3 border-red-200 bg-red-50 text-red-800"><AlertCircle size={18}/><p className="text-sm">{message}</p></div>}

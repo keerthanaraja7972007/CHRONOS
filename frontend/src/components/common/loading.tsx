@@ -1,0 +1,1 @@
+export function Loading(){return <div className="grid min-h-48 place-items-center text-sm text-muted"><span className="mr-2 inline-block size-4 animate-spin rounded-full border-2 border-primary border-t-transparent"/>Loading intelligence…</div>}
